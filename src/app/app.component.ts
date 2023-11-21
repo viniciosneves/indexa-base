@@ -43,7 +43,7 @@ export class AppComponent {
 
       // Verifica se o nome do contato começa com a letra especificada.
       // Retorna 'true' se o nome começar com a letra, 'false' caso contrário.
-      return nomeMinusculo.startsWith(letra);
+      return nomeMinusculo.startsWith(letra) && (!filtroNormalizado || nomeMinusculo.includes(filtroNormalizado));
     });
   }
 }
