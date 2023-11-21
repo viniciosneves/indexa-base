@@ -7,6 +7,7 @@ import { SeparadorComponent } from './componentes/separador/separador.component'
 import { ContatoComponent } from './componentes/contato/contato.component';
 
 import agenda from './agenda.json'
+import { FormsModule } from '@angular/forms';
 
 interface Contato {
   id: number
@@ -17,7 +18,7 @@ interface Contato {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ContainerComponent, CabecalhoComponent, SeparadorComponent, ContatoComponent],
+  imports: [CommonModule, RouterOutlet, ContainerComponent, CabecalhoComponent, SeparadorComponent, ContatoComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -25,12 +26,16 @@ export class AppComponent {
   alfabeto = "abcdefghijklmnopqrstuvwxyz";
   contatos: Contato[] = agenda
 
+  filtroPorTexto: string = ''
+
   filtraContatoPorletra(letra: string): Contato[] {
+
     return this.contatos.filter(contato => {
       // Normaliza o nome do contato para remover acentos. O método 'normalize'
       // com o argumento "NFD" (Decomposição Normalizada da Forma Canônica) separa
       // os acentos das letras. O 'replace' então remove os acentos (marcas diacríticas).
       const nomeNormalizado = contato.nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const filtroNormalizado = this.filtroPorTexto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
       // Converte o nome normalizado para minúsculas para garantir uma comparação
       // insensível a maiúsculas/minúsculas.

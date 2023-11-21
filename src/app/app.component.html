@@ -1,5 +1,11 @@
 <app-container>
   <app-cabecalho />
+  
+  <input 
+    type="search" 
+    [(ngModel)]="filtroPorTexto" 
+    placeholder="Digite para buscar"
+  >
 
   @for (letra of alfabeto; track letra) {
     <app-separador>
