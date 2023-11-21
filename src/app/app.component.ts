@@ -25,4 +25,7 @@ export class AppComponent {
   alfabeto = "abcdefghijklmnopqrstuvwxyz";
   contatos: Contato[] = agenda
 
+  filtraContatoPorletra(letra: string): Contato[] {
+    return this.contatos.filter(contato => contato.nome.toLowerCase().startsWith(letra))
+  }
 }
