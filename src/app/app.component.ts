@@ -6,6 +6,14 @@ import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component'
 import { SeparadorComponent } from './componentes/separador/separador.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
 
+import agenda from './agenda.json'
+
+interface Contato {
+  id: number
+  nome: string
+  telefone: string
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -15,5 +23,6 @@ import { ContatoComponent } from './componentes/contato/contato.component';
 })
 export class AppComponent {
   alfabeto = "abcdefghijklmnopqrstuvwxyz";
+  contatos: Contato[] = agenda
 
 }
