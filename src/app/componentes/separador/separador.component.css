@@ -1,0 +1,9 @@
+h2 {
+    border-bottom: 1px solid #0D6EFD;
+    color: #0D6EFD;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
